@@ -4,5 +4,5 @@ WORKDIR /code
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 COPY . .
-CMD ["python" ,"main.py"] 
+CMD ["python" , "-u" ,"main.py"] 
 # Or enter the name of your unique directory and parameter set.

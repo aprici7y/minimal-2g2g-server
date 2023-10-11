@@ -13,7 +13,7 @@ class TooGoodTooGo:
 
     def __init__(self, favorite_store, token, chat_id):
         self.client = TgtgClient(email="karaffen-panini0i@icloud.com")
-        ##self.client.get_credentials()
+        self.client.get_credentials()
         self.store_id = favorite_store
         self.chat_id = chat_id
         self.bot = telebot.TeleBot(token, parse_mode=None)

@@ -2,6 +2,7 @@ import random
 import time
 from tgtg import TgtgClient
 import telebot
+import logging
 
 
 
@@ -11,6 +12,7 @@ class TooGoodTooGo:
 
     def __init__(self, favorite_store, token, chat_id):
         self.client = TgtgClient(email="karaffen-panini0i@icloud.com")
+        self.client.get_credentials()
         self.store_id = favorite_store
         self.chat_id = chat_id
         self.bot = telebot.TeleBot(token, parse_mode=None)
@@ -27,11 +29,14 @@ class TooGoodTooGo:
     def serve(self):
         self.bot.send_message(self.chat_id, 'deployed')
         while(True):
+            logging.info('server seems to be healthy')
             random_time_range = random.randint(45, 120)
             time.sleep(random_time_range)
             item = self.client.get_item(item_id=self.store_id)
             if(item['items_available'] > 0):
                 self.bot.send_message(self.chat_id, 'avaible')
+            logging.info('keeping running')
+
 
                 
 
